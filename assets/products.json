@@ -1,0 +1,25 @@
+{
+	"MACBOOKPRO":{
+        "name":"Macbook Pro",
+        "manufacturer":"Apple",
+        "price":1299,
+        "stock":32,
+        "options":["Intel core i5","Retina Display","Long life battery"]
+    },
+	"MACBOOKAIR":{
+        "name":"Macbook Pro Air",
+        "manufacturer":"Apple",
+        "price":1099.99,
+        "ultrabook":true,
+        "stock":112,
+        "options":["Intel core i7","SSD","Long life battery"]
+    },
+	 "LENOVOX230":{
+        "name":"Thinkpad x230",
+        "manufacturer":"Lenovo",
+        "price":1099.99,
+        "ultrabook":true,
+        "stock":0,
+        "options":["Intel core i5","SSD","Long life battery"]
+    }	
+}
