@@ -46,10 +46,7 @@ exports.findByName = async (req, res) => {
             res.send(data);
         })
         .catch(err => {
-            res.status(500).send({
-                message:
-                    err.message
-            });
+            res.status(500).send({ message: err.message });
         });
 }
 
@@ -59,23 +56,21 @@ exports.findSorted = async (req, res) => {
             res.send(data);
         })
         .catch(err => {
-            res.status(500).send({
-                message:
-                    err.message
-            });
+            res.status(500).send({ message: err.message });
         });
 }
 
 exports.findAll = async (req, res) => {
-    Student.find({ age: { $gte: 18 } }).then(data => res.send(data)).catch(err => res.status(500).send(err))
+    Student.find({ age: { $gte: 18 } })
+        .then(data => res.send(data))
+        .catch(err => res.status(500).send(err))
 }
 
 exports.advancedUpdate = async (req, res) => {
-    const student = await Student.find({ age: { $gt: 18 }, name: { $regex: '^a' } })
-    await student.forEach(element => {
-        element.note += 2;
-        student.update
-    });
-      
-      res.send({message: "c bon"})
+
+    const students = await Student.find({ age: { $gt: 18 }, name: { $regex: '^a' } })
+    for (let i = 0; i < students.length; i++) {
+        await Student.findOneAndUpdate({_id: students[i]._id}, { $set: { note: students[i].note += 2 } })
+    }
+    res.send({ message: "c bon" })
 }
