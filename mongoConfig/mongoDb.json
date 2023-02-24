@@ -1,0 +1,5 @@
+{
+    "mongo":{
+        "uri": "mongodb+srv://artofcoding:artofcoding@cluster0.ynybsgr.mongodb.net/?retryWrites=true&w=majority"
+    }
+}
