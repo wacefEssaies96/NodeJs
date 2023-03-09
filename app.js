@@ -7,7 +7,9 @@ let app = express()
 app.set("views", path.join(__dirname, "views"))
 app.set("view engine", "twig")
 app.use('/chat', chatRouter)
+
 const server = http.createServer(app)
+
 const io = require("socket.io")(server)
 io.on("connection", (socket) => {
     console.log('user connected')
@@ -17,5 +19,10 @@ io.on("connection", (socket) => {
         console.log('user disconnected')
         io.emit("msg", "a user has been disconnected")
     })
+    socket.on('typing', ()=>{
+        console.log('user is typing');
+        io.emit("msg", "a user is typing")
+    })
 })
+
 server.listen(3000, () => console.log("server is running on port 3000"))
