@@ -3,20 +3,28 @@
         <script src="/socket.io/socket.io.js"></script>
     </head>
     <body>
+        <p id="content"></p>
         <input id="msgInput" onKeyUp="typing()" type="text" placeholder="type your message here"> 
+        <button onclick='send()'>send</button>
         <script>
+            const username = prompt("enter username...")
             const socket = io.connect('ws://localhost:3000')
+            let content = document.getElementById('content')
+            
+            function send(){
+                socket.emit("message", ""+username+' '+document.getElementById('msgInput').value)
+            }
+            function typing(){
+                socket.emit("typing", `${username} is typing`)
+            }
+            socket.on("typing", (data)=>{
+                content.innerText = data
+            })
             socket.on("msg", (data)=> {
                 p = document.createElement("p")
                 p.innerText = data
                 document.body.append(p)
             })
-            {# function send(){
-                socket.emit("msg", x.value)
-            } #}
-            function typing(){
-                socket.emit("typing", "user is typing")
-            }
         </script>
     </body>
 </html>
