@@ -1,0 +1,29 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "Hello sir, i've created branches for each workshop that we've done.",
+  "main": "index.js",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "http-errors": "^2.0.0",
+    "mongoose": "^6.10.2",
+    "path": "^0.12.7",
+    "socket.io": "^4.6.1",
+    "twig": "^1.16.0"
+  },
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wacefessaies1/NodeJs.git"
+  },
+  "author": "wacef",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wacefessaies1/NodeJs/issues"
+  },
+  "homepage": "https://github.com/wacefessaies1/NodeJs#readme"
+}
